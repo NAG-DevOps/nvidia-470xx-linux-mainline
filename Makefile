@@ -22,4 +22,15 @@ test-el9-staging: build-el9
 test-%-staging: build-%
 	$(CONTAINER_ENGINE) run --network none --rm --env NVIDIA_470XX_APPLY_STAGING_PATCHES=1 nvidia-470xx-$*
 
-test: test-legacy test-mainline test-stable test-ubuntu-devel test-legacy-staging test-mainline-staging test-stable-staging test-ubuntu-devel-staging test-el9
+test: \
+	test-legacy \
+	test-mainline \
+	test-stable \
+	test-ubuntu-devel \
+	test-xanmod_clang \
+	test-legacy-staging \
+	test-mainline-staging \
+	test-stable-staging \
+	test-ubuntu-devel-staging \
+	test-xanmod_clang-staging \
+  test-el9
